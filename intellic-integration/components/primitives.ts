@@ -6,7 +6,7 @@ export const title = tv({
     color: {
       violet: "from-[#FF1CF7] to-[#b249f8]",
       yellow: "from-[#FF705B] to-[#FFB457]",
-      blue: "from-[#6fa9dd] to-[#2970ae]",
+      blue: "from-[#2970ae] to-[#2970ae]",
       cyan: "from-[#00b7fa] to-[#01cfea]",
       green: "from-[#6FEE8D] to-[#17c964]",
       pink: "from-[#FF72E1] to-[#F54C7A]",

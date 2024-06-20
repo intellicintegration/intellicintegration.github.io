@@ -33,23 +33,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="en" className="bg-gradient-to-br from-primary-50 bg-fixed"> 
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-transparent font-sans antialiased",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen bg-gradient-to-br from-primary-50">
+          <div className="relative flex flex-col h-screen">
             <Navbar />
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3">
 
-              <span className="text-default-600 flex items-center gap-1 text-current">Intellic Integration 2024</span>
+              <span className="text-default-600 flex items-center bg-transparent gap-1 text-current">Intellic Integration 2024</span>
             </footer>
           </div>
         </Providers>
