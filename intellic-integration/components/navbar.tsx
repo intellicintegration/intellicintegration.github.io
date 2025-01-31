@@ -1,52 +1,64 @@
 "use client"
 import {
-  Navbar as NextUINavbar,
+  Navbar as HeroUINavbar,
   NavbarContent,
   NavbarMenu,
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
   NavbarMenuItem,
-} from "@nextui-org/navbar";
-import { Link } from "@nextui-org/link";
-import { link as linkStyles } from "@nextui-org/theme";
+} from "@heroui/navbar";
+import { button as buttonStyles } from "@heroui/theme";
+import { Kbd } from "@heroui/kbd";
+import { Link } from "@heroui/link";
+import { Input } from "@heroui/input";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@heroui/dropdown";
+import { Image } from "@heroui/image";
+import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { Image } from "@nextui-org/image";
-import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { button as buttonStyles } from "@nextui-org/theme";
 import {
   TwitterIcon,
   GithubIcon,
   DiscordIcon,
 } from "@/components/icons";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/dropdown";
+
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Button } from "@nextui-org/button";
+import { siteConfig } from "@/config/site";
+import { ThemeSwitch } from "@/components/theme-switch";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export const Navbar = () => {
   const dropdownItems = [
     {
-      key: "autoscaling",
+      key: "about-us",
       description: "",
       label: "About Us"
     },
     {
-      key: "usage_metrics",
+      key: "our-team",
+      description: "",
+      label: "Our Team"
+    },
+    {
+      key: "core-values",
       description: "",
       label: "Core Values"
     },
     {
-      key: "production_ready",
+      key: "mission",
+      description: "",
+      label: "Mission"
+    },
+    {
+      key: "careers",
       description: "",
       label: "Careers"
     },
   ];
 
   return (
-    <NextUINavbar isBlurred={false} className="bg-transparent" maxWidth="xl" position="static">
+    <HeroUINavbar isBlurred={false} className="bg-transparent" maxWidth="xl" position="static">
       <NavbarContent className="items-center basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-2" href="/">
@@ -78,8 +90,8 @@ export const Navbar = () => {
               </DropdownTrigger>
             </NavbarItem>
             <DropdownMenu
-              aria-label="ACME features"
-              className="w-[340px]  rounded-lg"
+              aria-label="About Us"
+              className="w-[340px] rounded-lg"
               items={dropdownItems}
               color="primary"
               itemClasses={{
@@ -111,7 +123,7 @@ export const Navbar = () => {
               radius: "md",
               variant: "shadow",
             })}
-            href={siteConfig.links.docs}
+            href="/contact"
           >
             Contact Us
           </Link>
@@ -154,6 +166,6 @@ export const Navbar = () => {
           ))}
         </div>
       </NavbarMenu>
-    </NextUINavbar >
+    </HeroUINavbar>
   );
 };

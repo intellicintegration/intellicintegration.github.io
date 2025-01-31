@@ -1,14 +1,14 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
+"use client"
+import { Link } from "@heroui/link";
+import { Snippet } from "@heroui/snippet";
+import { Code } from "@heroui/code";
+import { Image } from "@heroui/image";
+import { Card, CardHeader, CardBody } from "@heroui/card";
+import { button as buttonStyles } from "@heroui/theme";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
-import { color } from "framer-motion";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { Image } from "@nextui-org/image";
 
 export default function Home() {
   const data = {
@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <Image src="./logo.svg" width={54} height={54} className="rounded-xl"/>
+      <Image src="./logo.svg" width={54} height={54} className="rounded-xl" />
       <div className="inline-block max-w-lg text-center justify-center">
         <h1 className={title()}>We&nbsp;</h1>
         <h1 className={title()}>architect&nbsp;</h1>
@@ -57,7 +57,7 @@ export default function Home() {
               <h2 className={title({ size: "sm" })}>
                 {card.title}
               </h2>
-              <h3 className={subtitle({class:"text-center"})}>{card.subtitle}</h3>
+              <h3 className={subtitle({ class: "text-center" })}>{card.subtitle}</h3>
             </CardHeader>
             <CardBody className="flex gap-4 flex-col">
               {card.cta.map((ctaItem, ctaIndex) => (
@@ -76,20 +76,19 @@ export default function Home() {
       </div>
 
       <div className="flex-col justify-end">
-      <h3 className={subtitle()}>Get started</h3>
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          className={buttonStyles({
-            color: "primary",
-            radius: "md",
-            variant: "shadow",
-          })}
-          href={siteConfig.links.docs}
-        >
-          Contact Us
-        </Link>
-      </div>
+        <h3 className={subtitle()}>Get started</h3>
+        <div className="flex gap-3">
+          <Link
+            className={buttonStyles({
+              color: "primary",
+              radius: "md",
+              variant: "shadow",
+            })}
+            href="/contact"
+          >
+            Contact Us
+          </Link>
+        </div>
       </div>
     </section>
   );

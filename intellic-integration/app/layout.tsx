@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
+import { Link } from "@heroui/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" className="bg-gradient-to-br from-primary-50 bg-fixed"> 
+    <html suppressHydrationWarning lang="en" className="bg-gradient-to-br from-primary-50 bg-fixed">
       <head />
       <body
         className={clsx(
@@ -48,8 +48,9 @@ export default function RootLayout({
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3">
-
-              <span className="text-default-600 flex items-center bg-transparent gap-1 text-current">Intellic Integration 2024</span>
+              <span className="text-default-600 flex items-center bg-transparent gap-1 text-current">
+                Intellic Integration {new Date().getFullYear()}
+              </span>
             </footer>
           </div>
         </Providers>
