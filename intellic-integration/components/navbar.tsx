@@ -80,6 +80,11 @@ export const Navbar = () => {
               Services
             </Link>
           </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Industries
+            </Link>
+          </NavbarItem>
           <Dropdown className="bg-gradient-to-br from-primary-50">
             <NavbarItem>
               <DropdownTrigger>
