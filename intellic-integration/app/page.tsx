@@ -83,6 +83,7 @@ export default function Home() {
               color: "primary",
               radius: "md",
               variant: "shadow",
+              className: "text-white",
             })}
             href="/contact"
           >

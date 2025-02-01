@@ -24,7 +24,7 @@ module.exports = {
         },
         colors: {
           primary: {
-            foreground: "#FFFFFF",
+            foreground: "#000",
             DEFAULT: "#2970ae",
             background: "#2970ae",
             50: "#c1daf0",  // Lightest

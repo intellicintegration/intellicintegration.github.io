@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  themeColor: "#2970ae ",
 };
 
 export const viewport: Viewport = {
@@ -33,12 +34,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" className="bg-gradient-to-br from-primary-50 bg-fixed">
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className="bg-gradient-to-br from-primary-50 bg-fixed"
+    >
       <head />
       <body
         className={clsx(
           "min-h-screen bg-transparent font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>

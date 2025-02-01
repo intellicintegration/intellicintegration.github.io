@@ -122,11 +122,11 @@ export const Navbar = () => {
       >
         <NavbarItem className="hidden sm:flex gap-2">
           <Link
-            isExternal
             className={buttonStyles({
               color: "primary",
               radius: "md",
               variant: "shadow",
+              className: "text-white",
             })}
             href="/contact"
           >
