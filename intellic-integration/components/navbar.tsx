@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
@@ -12,54 +12,100 @@ import { button as buttonStyles } from "@heroui/theme";
 import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
 import { Input } from "@heroui/input";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@heroui/dropdown";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@heroui/dropdown";
 import { Image } from "@heroui/image";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-} from "@/components/icons";
+import { TwitterIcon, GithubIcon, DiscordIcon } from "@/components/icons";
 
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export const Navbar = () => {
   const dropdownItems = [
     {
-      key: "about-us",
+      key: "about",
       description: "",
-      label: "About Us"
+      label: "About Us",
     },
     {
-      key: "our-team",
+      key: "team",
       description: "",
-      label: "Our Team"
+      label: "Our Team",
     },
     {
-      key: "core-values",
+      key: "values",
       description: "",
-      label: "Core Values"
+      label: "Core Values",
     },
     {
       key: "mission",
       description: "",
-      label: "Mission"
+      label: "Mission",
     },
     {
       key: "careers",
       description: "",
-      label: "Careers"
+      label: "Careers",
+    },
+  ];
+  const mobileMenuItems = [
+    {
+      key: "about",
+      description: "",
+      label: "About Us",
+    },
+    {
+      key: "team",
+      description: "",
+      label: "Our Team",
+    },
+    {
+      key: "services",
+      description: "",
+      label: "Services",
+    },
+    {
+      key: "industries",
+      description: "",
+      label: "Industries",
+    },
+    {
+      key: "values",
+      description: "",
+      label: "Core Values",
+    },
+    {
+      key: "mission",
+      description: "",
+      label: "Mission",
+    },
+    {
+      key: "careers",
+      description: "",
+      label: "Careers",
     },
   ];
 
   return (
-    <HeroUINavbar isBlurred={false} className="bg-transparent" maxWidth="xl" position="static">
-      <NavbarContent className="items-center basis-1/5 sm:basis-full" justify="start">
+    <HeroUINavbar
+      isBlurred={false}
+      className="bg-transparent"
+      maxWidth="xl"
+      position="static"
+    >
+      <NavbarContent
+        className="items-center basis-1/5 sm:basis-full"
+        justify="start"
+      >
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-2" href="/">
             <Image
@@ -70,18 +116,20 @@ export const Navbar = () => {
               alt="Intellic Integration Logo"
               className="hidden md:block"
             />
-            <p className="font-bold text-inherit px-0 md:px-1">Intellic Integration</p>
+            <p className="font-bold text-inherit px-0 md:px-1">
+              Intellic Integration
+            </p>
           </NextLink>
         </NavbarBrand>
 
         <div className="hidden md:flex gap-3">
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link color="foreground" href="/services">
               Services
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link color="foreground" href="/industries">
               Industries
             </Link>
           </NavbarItem>
@@ -101,20 +149,22 @@ export const Navbar = () => {
               color="primary"
               itemClasses={{
                 base: "gap-4",
+                title: "hover:text-white",
               }}
             >
               {(item) => (
-                <DropdownItem key={item.key} className="" description={item.description}>
+                <DropdownItem
+                  key={item.key}
+                  description={item.description}
+                  href={item.key}
+                >
                   {item.label}
                 </DropdownItem>
               )}
             </DropdownMenu>
           </Dropdown>
         </div>
-
       </NavbarContent>
-
-
 
       <NavbarContent
         className="hidden sm:flex basis-1/5 sm:basis-full items-center"
@@ -142,28 +192,34 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4 flex items-center" justify="end">
-        <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
+      <NavbarContent
+        className="sm:hidden basis-1 pl-4 flex items-center"
+        justify="end"
+      >
+        <Link
+          className={buttonStyles({
+            size: "sm",
+            color: "primary",
+            radius: "md",
+            variant: "shadow",
+            className: "text-white",
+          })}
+          href="/contact"
+        >
+          Contact Us
         </Link>
-        <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarMenu className="bg-gradient-to-br from-primary-50">
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
+          {mobileMenuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`} className="p-2">
               <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
-                href="#"
+                href={item.key}
+                underline="always"
                 size="lg"
+                color="foreground"
               >
                 {item.label}
               </Link>

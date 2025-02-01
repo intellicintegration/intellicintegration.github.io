@@ -11,7 +11,7 @@ export default function CareerPage() {
       <div className="flex flex-col flex-1 max-w-xl gap-2">
         <Card shadow="md" className="p-8 ">
           <CardHeader className="flex-col flex">
-            <h2 className={title({ size: "sm" })}>Application</h2>
+            <h2 className={title({ size: "sm" })}>Join Our Team</h2>
           </CardHeader>
           <CardBody className="">
             <Form className="flex gap-2">

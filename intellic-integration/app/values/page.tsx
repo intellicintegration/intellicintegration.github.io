@@ -8,7 +8,7 @@ import { button as buttonStyles } from "@heroui/theme";
 
 export default function ValuesPage() {
   const accordionItemClasses = {
-    title: "font-bold"
+    title: "font-bold text-sm md:text-base"
   };
   const data = {
     cards: [
@@ -90,7 +90,7 @@ export default function ValuesPage() {
               key={index}
               href={cta.href}
               isExternal={false}
-              className="flex-1 text-center flex items-center justify-center text-primary-600 bg-primary-50 p-4 rounded-lg shadow-md"
+              className="flex-1 text-center flex items-center justify-center text-sm md:text-base text-primary-600 bg-primary-50 p-4 rounded-lg shadow-md"
             >
               {cta.label}
             </Link>

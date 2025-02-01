@@ -25,7 +25,7 @@ export default function ContactPage() {
                 isRequired
               />
 
-              <Textarea variant="underlined" label="How can we help?" />
+              <Textarea isRequired variant="underlined" label="How can we help?" />
               <CardFooter className="flex justify-end">
                 <Button className="text-white" radius="md" color="primary">
                   Submit
