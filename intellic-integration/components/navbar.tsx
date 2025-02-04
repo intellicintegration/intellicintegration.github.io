@@ -28,8 +28,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const dropdownItems = [
     {
       key: "about",
@@ -97,8 +100,15 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar
+      isMenuOpen={isMenuOpen} // state value
+      onMenuOpenChange={setIsMenuOpen} // state setter function
       isBlurred={false}
-      className="bg-transparent"
+      className={clsx(
+        "bg-gradient-to-br from-primary-50",
+        "backdrop-blur-lg",
+        "border-b border-default-200/50",
+        "sticky top-0 z-40"
+      )}
       maxWidth="xl"
       position="static"
     >
@@ -188,7 +198,7 @@ export const Navbar = () => {
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
           </Link>
-          <ThemeSwitch />
+          {/* <ThemeSwitch /> */}
         </NavbarItem>
       </NavbarContent>
 
@@ -196,6 +206,7 @@ export const Navbar = () => {
         className="sm:hidden basis-1 pl-4 flex items-center"
         justify="end"
       >
+        
         <Link
           className={buttonStyles({
             size: "sm",
@@ -211,21 +222,20 @@ export const Navbar = () => {
         <NavbarMenuToggle />
       </NavbarContent>
 
-      <NavbarMenu className="bg-gradient-to-br from-primary-50">
-        <div className="mx-4 mt-2 flex flex-col gap-2">
-          {mobileMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`} className="p-2">
-              <Link
-                href={item.key}
-                underline="always"
-                size="lg"
-                color="foreground"
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </div>
+      <NavbarMenu className="bg-gradient-to-br from-primary-50 mx-4 mt-2 flex flex-col gap-2">
+        {mobileMenuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`} className="p-2">
+            <Link
+              onClick={toggleMenu}
+              href={item.key}
+              underline="always"
+              size="lg"
+              color="foreground"
+            >
+              {item.label}
+            </Link>
+          </NavbarMenuItem>
+        ))}
       </NavbarMenu>
     </HeroUINavbar>
   );

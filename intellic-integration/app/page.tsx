@@ -1,95 +1,159 @@
-"use client"
+"use client";
 import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
 import { Image } from "@heroui/image";
-import { Card, CardHeader, CardBody } from "@heroui/card";
-import { button as buttonStyles } from "@heroui/theme";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
+import { Divider } from "@heroui/divider";
+import { Button } from "@heroui/button";
+import { ArrowForward, ArrowRight, ArrowUpward, Lightbulb, RocketLaunch } from "@mui/icons-material";
 
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+import { motion } from "framer-motion";
+
+const slideInVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.75, ease: "easeOut" },
+  },
+};
 
 export default function Home() {
-  const data = {
-    cards: [
-      {
-        title: "Identity",
-        subtitle: "Who we are",
-        cta: [
-          { label: "About Us", href: "/about" },
-          { label: "Our Team", href: "/team" },
-        ]
-      },
-      {
-        title: "Service",
-        subtitle: "What we do",
-        cta: [
-          { label: "Services", href: "/services" },
-          { label: "Industries", href: "/industries" },
-        ]
-      },
-      {
-        title: "Mission",
-        subtitle: "Why we do it",
-        cta: [
-          { label: "Core Values", href: "/values" },
-          { label: "Mission", href: "/mission-statement" },
-        ]
-      }
-    ]
-  };
+  const hero = [
+    "Reimagining systems integration",
+    "from first principles—",
+    "harnessing technology",
+    "for unstoppable transformation",
+  ];
+
+  const sections = [
+    {
+      id: "section1",
+      title: "1. Spark Curiosity",
+      description:
+        "We build a genuine connection with your team—diving into your process and operations to pinpoint the real challenges that need to be solved. Our approach combines deep technical expertise with human-centered design thinking.",
+      icon: Lightbulb,
+      color: "yellow"
+    },
+    {
+      id: "section2",
+      title: "2. Accelerate Action",
+      description:
+        "We collaborate on forward-thinking strategies and concepts that pave the way for seamless, impactful implementation. Quick wins merge with long-term goals, ensuring every effort has measurable results.",
+      icon: RocketLaunch,
+      color: "green"
+    },
+    {
+      id: "section3",
+      title: "3. Elevate & Expand",
+      description:
+        "We don't just stop at implementation. We continuously monitor, refine, and optimize solutions to ensure they evolve with your business. Our commitment is to elevate your operations and expand your capabilities.",
+      icon: ArrowUpward,
+      color: "primary"
+    },
+  ];
 
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <Image src="./logo.svg" width={54} height={54} className="rounded-xl" />
-      <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className={title()}>We&nbsp;</h1>
-        <h1 className={title()}>architect&nbsp;</h1>
-        <br />
-        <h1 className={title({ color: "blue" })}>Industry 4.0 Solutions&nbsp;</h1>
-      </div>
-
-      <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-        {data.cards.map((card, index) => (
-          <Card key={index} fullWidth shadow="md" className="bg-transparent p-8">
-            <CardHeader className="flex-col flex">
-              <h2 className={title({ size: "sm" })}>
-                {card.title}
-              </h2>
-              <h3 className={subtitle({ class: "text-center" })}>{card.subtitle}</h3>
-            </CardHeader>
-            <CardBody className="flex gap-4 flex-col">
-              {card.cta.map((ctaItem, ctaIndex) => (
-                <Link
-                  key={ctaIndex}
-                  href={ctaItem.href}
-                  isExternal={false}
-                  className="flex-1 text-center flex items-center justify-center text-primary-600 bg-primary-50 p-4 rounded-lg shadow-md"
+    <section className="flex flex-col items-center justify-center gap-6">
+      <div className="h-[calc(100dvh-64px)] flex flex-col justify-center">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-[-10]"
+        >
+          <source src="./background.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={slideInVariants}
+        >
+          <Card className="inline-block bg-background/75 justify-center p-6">
+            {hero.map((line, index) => (
+              
+                <h1
+                  key={index}
+                  id={String(index)}
+                  className={title({ size: "lg", fullWidth: true })}
                 >
-                  {ctaItem.label}
-                </Link>
-              ))}
-            </CardBody>
+                  {line}
+                  <br />
+                </h1>
+              
+            ))}
+            <CardFooter className="flex justify-end items-center text-lg pt-6 gap-2">
+              <Image
+                width={32}
+                height={32}
+                src="./logo.svg"
+                alt="Intellic Integration Logo"
+              />
+              <h2 className={title({ size: "sm" })}>Intellic Integration</h2>
+            </CardFooter>
           </Card>
-        ))}
+        </motion.div>
       </div>
 
-      <div className="flex-col justify-end">
-        <h3 className={subtitle()}>Get started</h3>
-        <div className="flex gap-3">
-          <Link
-            className={buttonStyles({
-              color: "primary",
-              radius: "md",
-              variant: "shadow",
-              className: "text-white",
-            })}
-            href="/contact"
+      <div className="flex flex-col gap-6">
+        <h1 className={title({ size: "md", fullWidth: true })}>Our Approach</h1>
+        <Divider />
+
+        {sections.map((section, index) => (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={slideInVariants}
           >
-            Contact Us
-          </Link>
-        </div>
+            <Card
+              key={section.id}
+              id={String(index)}
+              className="group p-12 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20"
+            >
+              <CardHeader className="flex gap-6">
+                <section.icon fontSize="large" />
+                <h2 className={title({ size: "sm", fullWidth: true })}>
+                  {section.title}
+                </h2>
+              </CardHeader>
+              <CardBody className="transform transition-all duration-1000">
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-3xl leading-relaxed">
+                  {section.description}
+                </p>
+              </CardBody>
+            </Card>
+          </motion.div>
+        ))}
+        <Card className="group p-12 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20">
+          <CardHeader>
+            <h2 className={"text-4xl font-bold text-primary-400 underline"}>
+              The Result: A Lasting Partnership
+            </h2>
+          </CardHeader>
+          <CardBody>
+            <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-3xl leading-relaxed">
+              By uniting deep respect for people, a culture of innovation, and
+              advanced technology-driven innovation, we enable enterprise
+              transformation that extends well beyond any single project.
+            </p>
+          </CardBody>
+          <CardFooter className="p-2">
+            <Button
+              variant="shadow"
+              color="primary"
+              as={Link}
+              href="/contact"
+              className="p-8 flex items-center gap-4 hover:scale-105 transition-all duration-300 mt-8 group text-2xl"
+            >
+              Get Started
+              <ArrowForward />
+            </Button>
+          </CardFooter>
+        </Card>
       </div>
     </section>
   );
