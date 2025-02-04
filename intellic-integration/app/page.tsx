@@ -8,6 +8,8 @@ import {
   ArrowForward,
   ArrowRight,
   ArrowUpward,
+  Circle,
+  CircleOutlined,
   Lightbulb,
   RocketLaunch,
 } from "@mui/icons-material";
@@ -39,7 +41,7 @@ export default function Home() {
       description:
         "We build a genuine connection with your team—diving into your process and operations to pinpoint the real challenges that need to be solved. Our approach combines deep technical expertise with human-centered design thinking.",
       icon: Lightbulb,
-      color: "yellow",
+      classes: "group-hover:text-yellow-400 group-hover:animate-pulse",
     },
     {
       id: "section2",
@@ -47,7 +49,7 @@ export default function Home() {
       description:
         "We collaborate on forward-thinking strategies and concepts that pave the way for seamless, impactful implementation. Quick wins merge with long-term goals, ensuring every effort has measurable results.",
       icon: RocketLaunch,
-      color: "green",
+      classes: "group-hover:text-red-400 group-hover:-translate-y-4 group-hover:translate-x-4",
     },
     {
       id: "section3",
@@ -55,7 +57,7 @@ export default function Home() {
       description:
         "We don't just stop at implementation. We continuously monitor, refine, and optimize solutions to ensure they evolve with your business. Our commitment is to elevate your operations and expand your capabilities.",
       icon: ArrowUpward,
-      color: "primary",
+      classes: "group-hover:text-primary group-hover:-translate-y-4",
     },
   ];
 
@@ -78,7 +80,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.5 }}
           variants={slideInVariants}
         >
-          <Card className="inline-block bg-background/75 justify-center p-6">
+          <Card className="inline-block group bg-background/75 justify-center p-6">
             {hero.map((line, index) => (
               <h1
                 key={index}
@@ -120,7 +122,7 @@ export default function Home() {
               className="group p-12 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20"
             >
               <CardHeader className="flex gap-6">
-                <section.icon fontSize="large" />
+                <section.icon fontSize="large" className={section.classes} />
                 <h2 className={title({ size: "sm", fullWidth: true })}>
                   {section.title}
                 </h2>
