@@ -22,7 +22,7 @@ import { Image } from "@heroui/image";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { TwitterIcon, GithubIcon, DiscordIcon } from "@/components/icons";
+import GithubIcon from "@mui/icons-material/GitHub";
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { siteConfig } from "@/config/site";
@@ -106,11 +106,10 @@ export const Navbar = () => {
       className={clsx(
         "bg-gradient-to-br from-primary-50",
         "backdrop-blur-lg",
-        "border-b border-default-200/50",
-        "sticky top-0 z-40"
+        "border-b border-default-200/50"
       )}
       maxWidth="xl"
-      position="static"
+      position="sticky"
     >
       <NavbarContent
         className="items-center basis-1/5 sm:basis-full"
@@ -143,7 +142,7 @@ export const Navbar = () => {
               Industries
             </Link>
           </NavbarItem>
-          <Dropdown className="bg-gradient-to-br from-primary-50">
+          <Dropdown className="bg-gradient-to-br from-primary-50 bg-background">
             <NavbarItem>
               <DropdownTrigger>
                 <div className="flex cursor-pointer hover:text-default-600">
@@ -193,10 +192,10 @@ export const Navbar = () => {
             Contact Us
           </Link>
           <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-            <LinkedInIcon className="text-default-500" />
+            <LinkedInIcon fontSize="large" className="text-default-500" />
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-            <GithubIcon className="text-default-500" />
+            <GithubIcon fontSize="large" className="text-default-500" />
           </Link>
           {/* <ThemeSwitch /> */}
         </NavbarItem>
@@ -206,7 +205,6 @@ export const Navbar = () => {
         className="sm:hidden basis-1 pl-4 flex items-center"
         justify="end"
       >
-        
         <Link
           className={buttonStyles({
             size: "sm",

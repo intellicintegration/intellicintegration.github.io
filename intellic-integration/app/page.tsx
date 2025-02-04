@@ -8,14 +8,26 @@ import {
   ArrowForward,
   ArrowRight,
   ArrowUpward,
+  BatteryFull,
   Circle,
   CircleOutlined,
+  DriveEta,
+  ElectricBolt,
+  Factory,
+  Flatware,
+  KeyboardArrowRight,
   Lightbulb,
+  LocalPharmacy,
+  Newspaper,
+  Person,
+  Rocket,
   RocketLaunch,
+  Science,
 } from "@mui/icons-material";
 
 import { title, subtitle } from "@/components/primitives";
 import { motion } from "framer-motion";
+import { Accordion, AccordionItem } from "@heroui/accordion";
 
 const slideInVariants = {
   hidden: { opacity: 0, x: 100 },
@@ -49,7 +61,8 @@ export default function Home() {
       description:
         "We collaborate on forward-thinking strategies and concepts that pave the way for seamless, impactful implementation. Quick wins merge with long-term goals, ensuring every effort has measurable results.",
       icon: RocketLaunch,
-      classes: "group-hover:text-red-400 group-hover:-translate-y-4 group-hover:translate-x-4",
+      classes:
+        "group-hover:text-red-400 group-hover:-translate-y-4 group-hover:translate-x-4",
     },
     {
       id: "section3",
@@ -60,6 +73,94 @@ export default function Home() {
       classes: "group-hover:text-primary group-hover:-translate-y-4",
     },
   ];
+
+  const services = [
+    {
+      id: "service1",
+      title: "Systems Integration",
+      chips: [
+        "PoC To Enterprise Scale",
+        "Connect, Collect, Store, Visualize",
+        "Full Stack Development",
+        "Agile and Iterative Deployments",
+      ],
+    },
+    {
+      id: "service2",
+      title: "Operational Consulting",
+      chips: [
+        "DTMA Workshops",
+        "Design Sessions",
+        "ROI Identification",
+        "Continuous Improvement",
+      ],
+    },
+    {
+      id: "service3",
+      title: "Advanced Engineering",
+      chips: [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Vision Systems",
+        "Predicting Production Outcomes",
+      ],
+    },
+  ];
+
+  const industries = [
+    { id: "aerospace", title: "Aerospace", icon: Rocket },
+    { id: "automotive", title: "Automotive", icon: DriveEta },
+    { id: "battery-electric", title: "Battery / Electric", icon: BatteryFull },
+    { id: "chemical-materials", title: "Chemical / Materials", icon: Science },
+    { id: "consumer-goods", title: "Consumer Goods", icon: Person },
+    { id: "energy-utilities", title: "Energy / Utilities", icon: ElectricBolt },
+    { id: "food-beverage", title: "Food and Beverage", icon: Flatware },
+    { id: "metals-mining", title: "Metals / Mining", icon: Factory },
+    {
+      id: "pharma-life-sciences",
+      title: "Pharma / Life Sciences",
+      icon: LocalPharmacy,
+    },
+    { id: "pulp-paper", title: "Pulp / Paper", icon: Newspaper },
+  ];
+
+  const accordionItemClasses = {
+    title: "font-bold text-sm md:text-base",
+  };
+  const coreValues = [
+    {
+      title: "Authenticity",
+      subtitle: "",
+      description:
+        "We genuinely care for our employees, clients, their customers, and society. Our approach prioritizes meaningful impact—preserving and creating middle-class jobs.",
+    },
+    {
+      title: "Expertise",
+      subtitle: "",
+      description:
+        "We stay at the forefront through continuous learning, building expert teams so our clients don’t have to. Tackling complex projects keeps our work exciting, positioning Intellic as the team that pushes technology to the edge.",
+    },
+    {
+      title: "Humility",
+      subtitle: "",
+      description:
+        "We recognize that learning never stops. We embrace opportunities to grow alongside our clients and employees",
+    },
+    {
+      title: "Faith-Based Servant Leadership",
+      subtitle: "",
+      description:
+        "We strive to be greater than ourselves, seeking to improve the world around us. We answer to a Higher Power and are grateful for the opportunity to serve our community and beyond.",
+    },
+    {
+      title: "Transparency",
+      subtitle: "",
+      description:
+        "We are open about our business practices, our projects, and our employees. We believe that transparency builds trust and better collaboration.",
+    },
+  ];
+  const valueDescription =
+    "Intellic was founded on five core values that continue to shape how we manage our business, projects, employees, and interact with the world around us.";
 
   return (
     <section className="flex flex-col items-center justify-center gap-6">
@@ -137,7 +238,7 @@ export default function Home() {
         ))}
         <Card className="group p-12 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20">
           <CardHeader>
-            <h2 className={"text-4xl font-bold text-primary-400 underline"}>
+            <h2 className={"text-4xl font-bold text-primary-400"}>
               The Result: A Lasting Partnership
             </h2>
           </CardHeader>
@@ -161,6 +262,176 @@ export default function Home() {
             </Button>
           </CardFooter>
         </Card>
+      </div>
+
+      <div className="bg-default-50/70 w-dvw">
+        <div className="container mx-auto max-w-7xl p-6 gap-6 flex-grow transition">
+          <div className="flex flex-col gap-6">
+            <h1 className={title({ size: "md", fullWidth: true })}>Services</h1>
+            <Divider />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service) => (
+                <motion.div
+                  key={service.id}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.5 }}
+                  variants={slideInVariants}
+                >
+                  <Card key={service.id} className="p-6 bg-background">
+                    <CardHeader>
+                      <h2 className="text-2xl font-bold text-primary-400">
+                        {service.title}
+                      </h2>
+                    </CardHeader>
+                    <CardBody>
+                      <ul className="list-disc pl-6">
+                        {service.chips.map((chip, index) => (
+                          <li key={index} className="text-lg text-gray-300">
+                            {chip}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardBody>
+                    <CardFooter className="justify-end">
+                      <Button
+                        variant="light"
+                        color="primary"
+                        as={Link}
+                        href="/contact"
+                        className="flex items-center gap-2 font-semibold text-md items-center hover:scale-105 transition-all duration-300 mt-4"
+                      >
+                        Learn More
+                        <KeyboardArrowRight />
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-6 w-full">
+        <h1 className={title({ size: "md", fullWidth: true })}>Industries</h1>
+        <Divider />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {industries.map((industry) => (
+            <motion.div
+              key={industry.id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              variants={slideInVariants}
+            >
+              <Card key={industry.id} className="p-6">
+                <CardHeader className="gap-2">
+                  <industry.icon
+                    fontSize="medium"
+                    className="text-primary-400"
+                  />
+                  <h2 className="font-semibold">{industry.title}</h2>
+                </CardHeader>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+        <div className="flex flex-1 justify-end flex-row">
+          <div className="flex flex-col items-end gap-2 text-default-500">
+            <p>Don&apos;t see your industry?</p>
+            <Button
+              variant="shadow"
+              color="primary"
+              as={Link}
+              href="/contact"
+              className="p-4 flex items-center gap-4 hover:scale-105 transition-all duration-300 group"
+            >
+              Contact Us
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-default-50/70 w-dvw">
+        <div className="container mx-auto max-w-7xl p-6 gap-6 flex-grow transition">
+          <div className="flex flex-col gap-6">
+            <h1 className={title({ size: "md", fullWidth: true })}>About Us</h1>
+            <Divider />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="p-8 bg-background">
+                <CardHeader className="flex-col flex text-primary-400">
+                  <h2 className={title({ size: "sm" })}>Our Mission</h2>
+                </CardHeader>
+                <CardBody className="">
+                  <p className="text-xl text-gray-300 md:text-justify">
+                    Our mission is to save and create middle class jobs. We do
+                    this by helping employers leverage technology to innovate
+                    their businesses. We are here to improve the lives of
+                    everyone we come into contact with.
+                  </p>
+                </CardBody>
+                <CardFooter className="flex justify-end">
+                  <div className="flex flex-col items-end gap-2 text-default-500">
+                    <p>Interested in joining our team?</p>
+                    <Button
+                      variant="light"
+                      color="primary"
+                      as={Link}
+                      href="/careers"
+                      className="p-4 flex items-center gap-4 hover:scale-105 transition-all duration-300 group"
+                    >
+                      Careers
+                    </Button>
+                  </div>
+                </CardFooter>
+              </Card>
+              <Card shadow="md" className="p-8 bg-background">
+                <CardHeader className="flex-col flex text-primary-400">
+                  <h2 className={title({ size: "sm" })}>Core Values</h2>
+                </CardHeader>
+                <CardBody className="gap-2">
+                  <p className="text-xl text-gray-300 md:text-justify">
+                    {valueDescription}
+                  </p>
+                  <Accordion>
+                    {coreValues.map((coreValue, index) => (
+                      <AccordionItem
+                        key={index}
+                        aria-label={coreValue.title}
+                        title={coreValue.title}
+                        classNames={accordionItemClasses}
+                      >
+                        {coreValue.description}
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </CardBody>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col h-64 gap-6 w-dvw text-center relative overflow-hidden rounded-xl">
+        {/* Glow Effect */}
+        <div className="absolute inset-0 bg-primary-500 p-6 opacity-30 blur-3xl rounded-xl z-0"></div>
+
+        {/* Content Wrapper */}
+        <div className="flex flex-col items-center p-6 rounded-xl relative z-10">
+          <h1 className={title({ size: "md", fullWidth: true })}>
+            Ready for Transformation?
+          </h1>
+          <Button
+            color="primary"
+            variant="solid"
+            className="p-8 hover:scale-105 transition-all duration-300 mt-4 text-2xl self-center"
+          >
+            Let&apos;s Go!
+          </Button>
+        </div>
       </div>
     </section>
   );
