@@ -4,7 +4,13 @@ import { Image } from "@heroui/image";
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
 import { Divider } from "@heroui/divider";
 import { Button } from "@heroui/button";
-import { ArrowForward, ArrowRight, ArrowUpward, Lightbulb, RocketLaunch } from "@mui/icons-material";
+import {
+  ArrowForward,
+  ArrowRight,
+  ArrowUpward,
+  Lightbulb,
+  RocketLaunch,
+} from "@mui/icons-material";
 
 import { title, subtitle } from "@/components/primitives";
 import { motion } from "framer-motion";
@@ -33,7 +39,7 @@ export default function Home() {
       description:
         "We build a genuine connection with your team—diving into your process and operations to pinpoint the real challenges that need to be solved. Our approach combines deep technical expertise with human-centered design thinking.",
       icon: Lightbulb,
-      color: "yellow"
+      color: "yellow",
     },
     {
       id: "section2",
@@ -41,7 +47,7 @@ export default function Home() {
       description:
         "We collaborate on forward-thinking strategies and concepts that pave the way for seamless, impactful implementation. Quick wins merge with long-term goals, ensuring every effort has measurable results.",
       icon: RocketLaunch,
-      color: "green"
+      color: "green",
     },
     {
       id: "section3",
@@ -49,7 +55,7 @@ export default function Home() {
       description:
         "We don't just stop at implementation. We continuously monitor, refine, and optimize solutions to ensure they evolve with your business. Our commitment is to elevate your operations and expand your capabilities.",
       icon: ArrowUpward,
-      color: "primary"
+      color: "primary",
     },
   ];
 
@@ -74,16 +80,14 @@ export default function Home() {
         >
           <Card className="inline-block bg-background/75 justify-center p-6">
             {hero.map((line, index) => (
-              
-                <h1
-                  key={index}
-                  id={String(index)}
-                  className={title({ size: "lg", fullWidth: true })}
-                >
-                  {line}
-                  <br />
-                </h1>
-              
+              <h1
+                key={index}
+                id={String(index)}
+                className={title({ size: "lg", fullWidth: true })}
+              >
+                {line}
+                <br />
+              </h1>
             ))}
             <CardFooter className="flex justify-end items-center text-lg pt-6 gap-2">
               <Image
@@ -104,6 +108,7 @@ export default function Home() {
 
         {sections.map((section, index) => (
           <motion.div
+            key={section.id}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
