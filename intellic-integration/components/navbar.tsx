@@ -9,9 +9,9 @@ import {
   NavbarMenuItem,
 } from "@heroui/navbar";
 import { button as buttonStyles } from "@heroui/theme";
-import { Kbd } from "@heroui/kbd";
+
 import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
+
 import {
   Dropdown,
   DropdownTrigger,
@@ -19,40 +19,24 @@ import {
   DropdownItem,
 } from "@heroui/dropdown";
 import { Image } from "@heroui/image";
-import { link as linkStyles } from "@heroui/theme";
+
 import NextLink from "next/link";
 import clsx from "clsx";
 import GithubIcon from "@mui/icons-material/GitHub";
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
+import { Divider } from "@heroui/divider";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const dropdownItems = [
     {
-      key: "about",
+      key: "/#about-us",
       description: "",
       label: "About Us",
-    },
-    {
-      key: "team",
-      description: "",
-      label: "Our Team",
-    },
-    {
-      key: "values",
-      description: "",
-      label: "Core Values",
-    },
-    {
-      key: "mission",
-      description: "",
-      label: "Mission",
     },
     {
       key: "careers",
@@ -62,37 +46,22 @@ export const Navbar = () => {
   ];
   const mobileMenuItems = [
     {
-      key: "about",
+      key: "/#about-us",
       description: "",
       label: "About Us",
     },
     {
-      key: "team",
-      description: "",
-      label: "Our Team",
-    },
-    {
-      key: "services",
+      key: "/#services",
       description: "",
       label: "Services",
     },
     {
-      key: "industries",
+      key: "/#industries",
       description: "",
       label: "Industries",
     },
     {
-      key: "values",
-      description: "",
-      label: "Core Values",
-    },
-    {
-      key: "mission",
-      description: "",
-      label: "Mission",
-    },
-    {
-      key: "careers",
+      key: "/careers",
       description: "",
       label: "Careers",
     },
@@ -106,10 +75,11 @@ export const Navbar = () => {
       className={clsx(
         "bg-gradient-to-br from-primary-50",
         "backdrop-blur-lg",
-        "border-b border-default-200/50"
+        "border-b border-default-200/50",
+        "sticky"
       )}
       maxWidth="xl"
-      position="sticky"
+      // shouldHideOnScroll
     >
       <NavbarContent
         className="items-center basis-1/5 sm:basis-full"
@@ -133,12 +103,12 @@ export const Navbar = () => {
 
         <div className="hidden md:flex gap-3">
           <NavbarItem>
-            <Link color="foreground" href="/services">
+            <Link color="foreground" href="/#services">
               Services
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="/industries">
+            <Link color="foreground" href="/#industries">
               Industries
             </Link>
           </NavbarItem>
@@ -191,10 +161,18 @@ export const Navbar = () => {
           >
             Contact Us
           </Link>
-          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
+          <Link
+            isExternal
+            aria-label="Twitter"
+            href="https://www.linkedin.com/company/intellic-integration"
+          >
             <LinkedInIcon fontSize="large" className="text-default-500" />
           </Link>
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
+          <Link
+            isExternal
+            aria-label="Github"
+            href="https://github.com/intellicintegration"
+          >
             <GithubIcon fontSize="large" className="text-default-500" />
           </Link>
           {/* <ThemeSwitch /> */}
@@ -220,7 +198,7 @@ export const Navbar = () => {
         <NavbarMenuToggle />
       </NavbarContent>
 
-      <NavbarMenu className="bg-gradient-to-br from-primary-50 mx-4 mt-2 flex flex-col gap-2">
+      <NavbarMenu className="bg-gradient-to-br from-primary-50 flex flex-col gap-2">
         {mobileMenuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`} className="p-2">
             <Link
@@ -234,6 +212,23 @@ export const Navbar = () => {
             </Link>
           </NavbarMenuItem>
         ))}
+        <Divider />
+        <div className="flex gap-2 p-2 justify-end">
+          <Link
+            isExternal
+            aria-label="Linkedin"
+            href="https://www.linkedin.com/company/intellic-integration"
+          >
+            <LinkedInIcon fontSize="large" className="text-default-500" />
+          </Link>
+          <Link
+            isExternal
+            aria-label="Github"
+            href="https://github.com/intellicintegration"
+          >
+            <GithubIcon fontSize="large" className="text-default-500" />
+          </Link>
+        </div>
       </NavbarMenu>
     </HeroUINavbar>
   );

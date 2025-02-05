@@ -6,11 +6,8 @@ import { Divider } from "@heroui/divider";
 import { Button } from "@heroui/button";
 import {
   ArrowForward,
-  ArrowRight,
   ArrowUpward,
   BatteryFull,
-  Circle,
-  CircleOutlined,
   DriveEta,
   ElectricBolt,
   Factory,
@@ -25,12 +22,12 @@ import {
   Science,
 } from "@mui/icons-material";
 
-import { title, subtitle } from "@/components/primitives";
+import { title} from "@/components/primitives";
 import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 
 const slideInVariants = {
-  hidden: { opacity: 0, x: 100 },
+  hidden: { opacity: 0, x: 10 },
   visible: {
     opacity: 1,
     x: 0,
@@ -164,7 +161,7 @@ export default function Home() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-6">
-      <div className="h-[calc(100dvh-64px)] flex flex-col justify-center">
+      <div className="h-lvh flex flex-col justify-center">
         <video
           autoPlay
           loop
@@ -186,20 +183,20 @@ export default function Home() {
               <h1
                 key={index}
                 id={String(index)}
-                className={title({ size: "lg", fullWidth: true })}
+                className={"text-xl font-bold md:text-4xl"}
               >
                 {line}
                 <br />
               </h1>
             ))}
-            <CardFooter className="flex justify-end items-center text-lg pt-6 gap-2">
+            <CardFooter className="flex justify-end items-center pt-6 gap-2">
               <Image
                 width={32}
                 height={32}
                 src="./logo.svg"
                 alt="Intellic Integration Logo"
               />
-              <h2 className={title({ size: "sm" })}>Intellic Integration</h2>
+              <h2 className={"text-xl font-bold"}>Intellic Integration</h2>
             </CardFooter>
           </Card>
         </motion.div>
@@ -220,42 +217,40 @@ export default function Home() {
             <Card
               key={section.id}
               id={String(index)}
-              className="group p-12 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20"
+              className="group p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20"
             >
-              <CardHeader className="flex gap-6">
+              <CardHeader className="flex gap-4">
                 <section.icon fontSize="large" className={section.classes} />
-                <h2 className={title({ size: "sm", fullWidth: true })}>
-                  {section.title}
-                </h2>
+                <h2 className={"text-xl font-bold"}>{section.title}</h2>
               </CardHeader>
               <CardBody className="transform transition-all duration-1000">
-                <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-3xl leading-relaxed">
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-lg leading-relaxed">
                   {section.description}
                 </p>
               </CardBody>
             </Card>
           </motion.div>
         ))}
-        <Card className="group p-12 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20">
+        <Card className="group p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20">
           <CardHeader>
-            <h2 className={"text-4xl font-bold text-primary-400"}>
+            <h2 className={"text-xl font-bold text-primary-400"}>
               The Result: A Lasting Partnership
             </h2>
           </CardHeader>
           <CardBody>
-            <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-3xl leading-relaxed">
+            <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-lg leading-relaxed">
               By uniting deep respect for people, a culture of innovation, and
               advanced technology-driven innovation, we enable enterprise
               transformation that extends well beyond any single project.
             </p>
           </CardBody>
-          <CardFooter className="p-2">
+          <CardFooter className="">
             <Button
               variant="shadow"
               color="primary"
               as={Link}
               href="/contact"
-              className="p-8 flex items-center gap-4 hover:scale-105 transition-all duration-300 mt-8 group text-2xl"
+              className="p-8 flex items-center gap-4 hover:scale-105 transition-all duration-300 group text-xl"
             >
               Get Started
               <ArrowForward />
@@ -267,7 +262,12 @@ export default function Home() {
       <div className="bg-default-50/70 w-dvw">
         <div className="container mx-auto max-w-7xl p-6 gap-6 flex-grow transition">
           <div className="flex flex-col gap-6">
-            <h1 className={title({ size: "md", fullWidth: true })}>Services</h1>
+            <h1
+              id="services"
+              className={title({ size: "md", fullWidth: true })}
+            >
+              Services
+            </h1>
             <Divider />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -279,7 +279,10 @@ export default function Home() {
                   viewport={{ once: true, amount: 0.5 }}
                   variants={slideInVariants}
                 >
-                  <Card key={service.id} className="p-6 bg-background">
+                  <Card
+                    key={service.id}
+                    className="p-6 bg-background group transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20"
+                  >
                     <CardHeader>
                       <h2 className="text-2xl font-bold text-primary-400">
                         {service.title}
@@ -288,7 +291,10 @@ export default function Home() {
                     <CardBody>
                       <ul className="list-disc pl-6">
                         {service.chips.map((chip, index) => (
-                          <li key={index} className="text-lg text-gray-300">
+                          <li
+                            key={index}
+                            className="text-gray-300 group-hover:text-gray-200 transition-colors text-lg leading-relaxed"
+                          >
                             {chip}
                           </li>
                         ))}
@@ -315,9 +321,11 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-6 w-full">
-        <h1 className={title({ size: "md", fullWidth: true })}>Industries</h1>
+        <h1 id="industries" className={title({ size: "md", fullWidth: true })}>
+          Industries
+        </h1>
         <Divider />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((industry) => (
             <motion.div
               key={industry.id}
@@ -326,7 +334,10 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               variants={slideInVariants}
             >
-              <Card key={industry.id} className="p-6">
+              <Card
+                key={industry.id}
+                className="group border-b border-primary p-6"
+              >
                 <CardHeader className="gap-2">
                   <industry.icon
                     fontSize="medium"
@@ -357,7 +368,12 @@ export default function Home() {
       <div className="bg-default-50/70 w-dvw">
         <div className="container mx-auto max-w-7xl p-6 gap-6 flex-grow transition">
           <div className="flex flex-col gap-6">
-            <h1 className={title({ size: "md", fullWidth: true })}>About Us</h1>
+            <h1
+              id="about-us"
+              className={title({ size: "md", fullWidth: true })}
+            >
+              About Us
+            </h1>
             <Divider />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -366,7 +382,7 @@ export default function Home() {
                   <h2 className={title({ size: "sm" })}>Our Mission</h2>
                 </CardHeader>
                 <CardBody className="">
-                  <p className="text-xl text-gray-300 md:text-justify">
+                  <p className="text-lg text-gray-300 md:text-justify">
                     Our mission is to save and create middle class jobs. We do
                     this by helping employers leverage technology to innovate
                     their businesses. We are here to improve the lives of
@@ -393,7 +409,7 @@ export default function Home() {
                   <h2 className={title({ size: "sm" })}>Core Values</h2>
                 </CardHeader>
                 <CardBody className="gap-2">
-                  <p className="text-xl text-gray-300 md:text-justify">
+                  <p className="text-lg text-gray-300 md:text-justify">
                     {valueDescription}
                   </p>
                   <Accordion>
@@ -415,18 +431,18 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col h-64 gap-6 w-dvw text-center relative overflow-hidden rounded-xl">
-        {/* Glow Effect */}
+      <div className="flex flex-col h-64 gap-4 -mt-6 w-dvw text-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-primary-500 p-6 opacity-30 blur-3xl rounded-xl z-0"></div>
 
-        {/* Content Wrapper */}
-        <div className="flex flex-col items-center p-6 rounded-xl relative z-10">
+        <div className="flex flex-col items-center justify-center p-6 rounded-xl relative z-10">
           <h1 className={title({ size: "md", fullWidth: true })}>
             Ready for Transformation?
           </h1>
           <Button
             color="primary"
             variant="solid"
+            as={Link}
+            href="/contact"
             className="p-8 hover:scale-105 transition-all duration-300 mt-4 text-2xl self-center"
           >
             Let&apos;s Go!

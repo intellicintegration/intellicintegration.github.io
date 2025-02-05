@@ -7,9 +7,12 @@ import { Button } from "@heroui/button";
 
 export default function ContactPage() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex pt-6 justify-center h-lvh ">
       <div className="flex flex-col flex-1 max-w-xl gap-2">
-        <Card shadow="md" className="p-8 ">
+        <Card
+          shadow="md"
+          className="p-8 transition-all duration-500 shadow-xl shadow-primary-400/20"
+        >
           <CardHeader className="flex-col flex">
             <h2 className={title({ size: "sm" })}>Contact</h2>
           </CardHeader>
@@ -25,7 +28,11 @@ export default function ContactPage() {
                 isRequired
               />
 
-              <Textarea isRequired variant="underlined" label="How can we help?" />
+              <Textarea
+                isRequired
+                variant="underlined"
+                label="How can we help?"
+              />
               <CardFooter className="flex justify-end">
                 <Button className="text-white" radius="md" color="primary">
                   Submit

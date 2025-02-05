@@ -61,7 +61,7 @@ export default function RootLayout({
               {children}
             </main>
             <footer className="w-full bg-black text-white py-10">
-              <div className="max-w-7xl mx-auto px-6 flex-row flex justify-between">
+              <div className="max-w-7xl mx-auto px-6 flex-col gap-4 md:flex-row flex justify-between">
                 <div className="flex flex-row gap-2 items-center">
                   <Image
                     src="/logo.svg"
@@ -77,13 +77,21 @@ export default function RootLayout({
                   <Button variant="bordered" as={Link} href="/contact">
                     Contact Us
                   </Button>
-                  <Link isExternal aria-label="Twitter" href="">
+                  <Link
+                    isExternal
+                    aria-label="Linkedin"
+                    href="https://www.linkedin.com/company/intellic-integration"
+                  >
                     <LinkedInIcon
                       fontSize="large"
                       className="text-default-500"
                     />
                   </Link>
-                  <Link isExternal aria-label="Github" href="">
+                  <Link
+                    isExternal
+                    aria-label="Github"
+                    href="https://github.com/intellicintegration"
+                  >
                     <GithubIcon fontSize="large" className="text-default-500" />
                   </Link>
                 </div>
