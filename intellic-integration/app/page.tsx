@@ -161,7 +161,7 @@ export default function Home() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-6">
-      <div className="h-lvh flex flex-col justify-center">
+      <div className="h-[calc(100dvh-64px)] flex flex-col justify-center">
         <video
           autoPlay
           loop
