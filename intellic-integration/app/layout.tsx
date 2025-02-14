@@ -25,6 +25,23 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  keywords: [
+    "Intellic Integration",
+    "Integration",
+    "Software",
+    "Consulting",
+    "Services",
+    "UNS",
+    "Unified Namespace",
+    "MES",
+    "Manufacturing Execution System",
+    "DTMA",
+    "Digital Transformation Maturity Assessment",
+    "Digital Transformation",
+    "4.0 Industry",
+    "Industrial Automation",
+    "IIoT"
+  ]
 };
 
 export const viewport: Viewport = {
