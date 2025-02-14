@@ -10,7 +10,6 @@ import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { Place } from "@mui/icons-material";
 import { Image } from "@heroui/image";
-import { title } from "@/components/primitives";
 import { Button } from "@heroui/button";
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
