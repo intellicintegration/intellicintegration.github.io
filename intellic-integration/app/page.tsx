@@ -54,7 +54,7 @@ export default function Home() {
   }, [typingDone]);
   const [hero] = useTypewriter({
     words: [
-      "Redefining systems integration from first principles— harnessing technology for unstoppable transformation.",
+      "Redefining systems integration from first principles—harnessing technology for unstoppable transformation.",
     ],
     loop: 1,
     typeSpeed: 55,
