@@ -75,11 +75,12 @@ export const Navbar = () => {
       className={clsx(
         "bg-gradient-to-br from-primary-50",
         "backdrop-blur-lg",
-        "border-b border-default-200/50",
-        "sticky"
+        "border-b border-default-200/50"
+        
       )}
       maxWidth="xl"
       // shouldHideOnScroll
+      
     >
       <NavbarContent
         className="items-center basis-1/5 sm:basis-full"

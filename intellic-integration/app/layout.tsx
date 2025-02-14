@@ -13,8 +13,6 @@ import { Image } from "@heroui/image";
 import { title } from "@/components/primitives";
 import { Button } from "@heroui/button";
 
-
-
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GithubIcon from "@mui/icons-material/GitHub";
 
@@ -62,7 +60,7 @@ export default function RootLayout({
             </main>
             <footer className="w-full bg-black text-white py-10">
               <div className="max-w-7xl mx-auto px-6 flex-col gap-4 md:flex-row flex justify-between">
-                <div className="flex flex-row gap-2 items-center">
+                <Link className="flex flex-row gap-2 items-center cursor-pointer" href="/" color="foreground">
                   <Image
                     src="/logo.svg"
                     alt="Company Logo"
@@ -72,7 +70,7 @@ export default function RootLayout({
                   <h1 className={"w-full text-bold text-xl"}>
                     Intellic Integration
                   </h1>
-                </div>
+                </Link>
                 <div className="flex flex-row gap-2 items-center">
                   <Button variant="bordered" as={Link} href="/contact">
                     Contact Us
@@ -97,7 +95,7 @@ export default function RootLayout({
                 </div>
               </div>
 
-              <div className="border-t border-gray-700 mt-8 pt-6 gap-6 px-6 max-w-7xl mx-auto">
+              <div className="border-t border-gray-700 mt-8 pt-6 gap-6 px-6 max-w-7xl mx-auto flex flex-col md:flex-row">
                 {[
                   {
                     name: "Texas",
@@ -119,6 +117,36 @@ export default function RootLayout({
                     </div>
                   </div>
                 ))}
+                <div className="justify-center flex flex-1">
+                  <div className="gap-4 flex md:flex-row">
+                    {[
+                      {
+                        label: "About Us",
+                        url: "/#about-us",
+                      },
+                      {
+                        label: "Services",
+                        url: "/#services",
+                      },
+                      {
+                        label: "Contact",
+                        url: "/contact",
+                      },
+                      {
+                        label: "Careers",
+                        url: "/careers",
+                      },
+                    ].map((link, index) => (
+                      <Link
+                        key={index}
+                        href={link.url}
+                        className="text-sm text-gray-400"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Footer Bottom */}

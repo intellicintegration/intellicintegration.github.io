@@ -2,6 +2,8 @@
 import { Link } from "@heroui/link";
 import { Image } from "@heroui/image";
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
+
+import { Typewriter, useTypewriter } from "react-simple-typewriter";
 import { Divider } from "@heroui/divider";
 import { Button } from "@heroui/button";
 import {
@@ -22,9 +24,10 @@ import {
   Science,
 } from "@mui/icons-material";
 
-import { title} from "@/components/primitives";
+import { title } from "@/components/primitives";
 import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@heroui/accordion";
+import { useEffect, useState } from "react";
 
 const slideInVariants = {
   hidden: { opacity: 0, x: 10 },
@@ -35,13 +38,28 @@ const slideInVariants = {
   },
 };
 
+const logoVariant = {
+  hidden: { opacity: 0, x: 10 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1.25, ease: "easeOut" },
+  },
+};
+
 export default function Home() {
-  const hero = [
-    "Reimagining systems integration",
-    "from first principles—",
-    "harnessing technology",
-    "for unstoppable transformation",
-  ];
+  const [typingDone, setTypingDone] = useState(false);
+  useEffect(() => {
+    console.log("typingDone updated:", typingDone);
+  }, [typingDone]);
+  const [hero] = useTypewriter({
+    words: [
+      "Redefining systems integration from first principles— harnessing technology for unstoppable transformation.",
+    ],
+    loop: 1,
+    typeSpeed: 55,
+    onLoopDone: () => setTypingDone(true),
+  });
 
   const sections = [
     {
@@ -74,32 +92,80 @@ export default function Home() {
   const services = [
     {
       id: "service1",
-      title: "Systems Integration",
+      title: "Unified Namespace",
       chips: [
-        "PoC To Enterprise Scale",
-        "Connect, Collect, Store, Visualize",
-        "Full Stack Development",
-        "Agile and Iterative Deployments",
+        {
+          label: "Real-Time Event Processing",
+          description:
+            "Transform raw data into actionable insights with millisecond latency, enabling immediate response to production anomalies and opportunities.",
+        },
+        {
+          label: "Standardized Data Architecture",
+          description:
+            "Implement industry-standard schemas that ensure seamless integration between systems and future-proof your data infrastructure.",
+        },
+        {
+          label: "Custom Integration Solutions",
+          description:
+            "Bridge legacy systems with modern platforms through tailored connectors that preserve your existing investments while enabling digital transformation.",
+        },
+        {
+          label: "Event-Driven Architecture",
+          description:
+            "Ensure seamless, real-time data flow between systems with a publish-subscribe model that eliminates bottlenecks and redundancy.",
+        },
       ],
     },
     {
       id: "service2",
-      title: "Operational Consulting",
+      title: "Manufacturing Execution",
       chips: [
-        "DTMA Workshops",
-        "Design Sessions",
-        "ROI Identification",
-        "Continuous Improvement",
+        {
+          label: "Dynamic Production Orchestration",
+          description:
+            "Optimize throughput with AI-driven scheduling that adapts to real-time conditions, reducing lead times by up to 30%.",
+        },
+        {
+          label: "Intelligent Material Management",
+          description:
+            "Minimize inventory costs while ensuring production continuity through predictive material requirements planning and automated replenishment.",
+        },
+        {
+          label: "Advanced Quality Assurance",
+          description:
+            "Reduce defect rates and ensure compliance with automated inspection workflows and digital MRB processes that cut resolution time in half.",
+        },
+        {
+          label: "Real-Time Performance Analytics",
+          description:
+            "Boost OEE with live monitoring and predictive analytics that identify optimization opportunities before they impact production.",
+        },
       ],
     },
     {
       id: "service3",
       title: "Advanced Engineering",
       chips: [
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Vision Systems",
-        "Predicting Production Outcomes",
+        {
+          label: "Industrial AI Solutions",
+          description:
+            "Leverage machine learning models trained specifically for your processes to predict maintenance needs and optimize production parameters.",
+        },
+        {
+          label: "Intelligent Vision Systems",
+          description:
+            "Automate quality inspection and process monitoring with advanced computer vision that catches defects human operators might miss.",
+        },
+        {
+          label: "Edge Computing Framework",
+          description:
+            "Process critical data where it's created, reducing latency and bandwidth costs while enabling real-time decision making at the machine level.",
+        },
+        {
+          label: "Anomaly Detection",
+          description:
+            "Real-time AI monitoring to detect and prevent equipment failures before they escalate.",
+        },
       ],
     },
   ];
@@ -179,24 +245,27 @@ export default function Home() {
           variants={slideInVariants}
         >
           <Card className="inline-block group bg-background/75 justify-center p-6">
-            {hero.map((line, index) => (
-              <h1
-                key={index}
-                id={String(index)}
-                className={"text-xl font-bold md:text-4xl"}
-              >
-                {line}
-                <br />
-              </h1>
-            ))}
-            <CardFooter className="flex justify-end items-center pt-6 gap-2">
-              <Image
-                width={32}
-                height={32}
-                src="./logo.svg"
-                alt="Intellic Integration Logo"
-              />
-              <h2 className={"text-xl font-bold"}>Intellic Integration</h2>
+            <h1 className={"text-xl max-w-3xl font-bold md:text-4xl"}>
+              {hero}
+            </h1>
+            <CardFooter className="flex justify-end items-center">
+              {typingDone && (
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.5 }}
+                  variants={logoVariant}
+                  className="flex-row flex gap-2 items-center"
+                >
+                  <Image
+                    width={32}
+                    height={32}
+                    src="./logo.svg"
+                    alt="Intellic Integration Logo"
+                  />
+                  <h2 className="text-xl font-bold">Intellic Integration</h2>
+                </motion.div>
+              )}
             </CardFooter>
           </Card>
         </motion.div>
@@ -279,26 +348,25 @@ export default function Home() {
                   viewport={{ once: true, amount: 0.5 }}
                   variants={slideInVariants}
                 >
-                  <Card
-                    key={service.id}
-                    className="p-6 bg-background group transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20"
-                  >
+                  <Card className="p-6 bg-background group transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/20">
                     <CardHeader>
                       <h2 className="text-2xl font-bold text-primary-400">
                         {service.title}
                       </h2>
                     </CardHeader>
                     <CardBody>
-                      <ul className="list-disc pl-6">
+                      <Accordion>
                         {service.chips.map((chip, index) => (
-                          <li
+                          <AccordionItem
                             key={index}
-                            className="text-gray-300 group-hover:text-gray-200 transition-colors text-lg leading-relaxed"
+                            aria-label={chip.label}
+                            title={chip.label}
+                            classNames={accordionItemClasses}
                           >
-                            {chip}
-                          </li>
+                            {chip.description}
+                          </AccordionItem>
                         ))}
-                      </ul>
+                      </Accordion>
                     </CardBody>
                     <CardFooter className="justify-end">
                       <Button
@@ -306,7 +374,7 @@ export default function Home() {
                         color="primary"
                         as={Link}
                         href="/contact"
-                        className="flex items-center gap-2 font-semibold text-md items-center hover:scale-105 transition-all duration-300 mt-4"
+                        className="flex items-center gap-2 font-semibold text-md hover:scale-105 transition-all duration-300 mt-4"
                       >
                         Learn More
                         <KeyboardArrowRight />
