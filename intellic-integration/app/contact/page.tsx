@@ -80,9 +80,10 @@ export default function ContactPage() {
                   isRequired
                 />
 
-                <Input
+                <Textarea
+                  type="text"
                   isRequired
-                  type="textarea"
+                  variant="underlined"
                   label="How can we help?"
                   name="message"
                   id="message"
