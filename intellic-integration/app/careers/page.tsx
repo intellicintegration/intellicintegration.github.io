@@ -2,9 +2,8 @@
 import { title } from "@/components/primitives";
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
 import { Input, Textarea } from "@heroui/input";
-import { Form } from "@heroui/form";
 import { Button } from "@heroui/button";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "@heroui/link";
 
 export default function CareerPage() {
