@@ -47,7 +47,8 @@ export default function ContactPage() {
                 method="POST"
                 name="contact"
                 data-netlify="true"
-                onSubmit={handleSubmit}
+                // onSubmit={handleSubmit}
+                action={"/"}
               >
                 <input type="hidden" name="form-name" value="contact" />
                 <Input
