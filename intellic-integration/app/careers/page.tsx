@@ -49,6 +49,7 @@ export default function CareerPage() {
                 data-netlify="true"
                 onSubmit={handleSubmit}
               >
+                <input type="hidden" name="form-name" value="careers" />
                 <Input
                   variant="underlined"
                   name="first-name"

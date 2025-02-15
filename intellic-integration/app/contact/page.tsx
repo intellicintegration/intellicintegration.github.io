@@ -50,9 +50,28 @@ export default function ContactPage() {
                 data-netlify="true"
                 onSubmit={handleSubmit}
               >
-                <Input variant="underlined" label="First Name" name="first-name" id="first-name" isRequired />
-                <Input variant="underlined" label="Last Name" name="last-name" id="last-name" isRequired />
-                <Input variant="underlined" label="Company" name="company" id="company" isRequired />
+                <input type="hidden" name="form-name" value="contact" />
+                <Input
+                  variant="underlined"
+                  label="First Name"
+                  name="first-name"
+                  id="first-name"
+                  isRequired
+                />
+                <Input
+                  variant="underlined"
+                  label="Last Name"
+                  name="last-name"
+                  id="last-name"
+                  isRequired
+                />
+                <Input
+                  variant="underlined"
+                  label="Company"
+                  name="company"
+                  id="company"
+                  isRequired
+                />
                 <Input
                   variant="underlined"
                   label="Business Email"
@@ -71,7 +90,12 @@ export default function ContactPage() {
                   id="message"
                 />
                 <CardFooter className="flex justify-end">
-                  <Button type="submit" className="text-white" radius="md" color="primary">
+                  <Button
+                    type="submit"
+                    className="text-white"
+                    radius="md"
+                    color="primary"
+                  >
                     Submit
                   </Button>
                 </CardFooter>
@@ -101,7 +125,9 @@ export default function ContactPage() {
               <h2 className={title({ size: "sm" })}>Error</h2>
             </CardHeader>
             <CardBody className="flex flex-col gap-2">
-              <p>We apologize, but an error has occurred. Please try again later.</p>
+              <p>
+                We apologize, but an error has occurred. Please try again later.
+              </p>
               <span>{Error}</span>
             </CardBody>
           </Card>
