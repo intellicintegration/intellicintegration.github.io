@@ -55,6 +55,7 @@ export default function ContactPage() {
                   label="First Name"
                   name="first-name"
                   id="first-name"
+                  type="text"
                   isRequired
                 />
                 <Input
@@ -62,6 +63,7 @@ export default function ContactPage() {
                   label="Last Name"
                   name="last-name"
                   id="last-name"
+                  type="text"
                   isRequired
                 />
                 <Input
@@ -69,6 +71,7 @@ export default function ContactPage() {
                   label="Company"
                   name="company"
                   id="company"
+                  type="text"
                   isRequired
                 />
                 <Input
@@ -88,7 +91,7 @@ export default function ContactPage() {
                   name="message"
                   id="message"
                 />
-                
+
                 <CardFooter className="flex justify-end">
                   <Button
                     type="submit"
