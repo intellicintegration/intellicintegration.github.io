@@ -17,7 +17,7 @@ export default function ContactPage() {
 
     const formData = new FormData(event.target as HTMLFormElement);
     console.log(formData);
-    fetch("/", {
+    fetch("/netlify-contact.html", {
       method: "POST",
       body: formData,
     })

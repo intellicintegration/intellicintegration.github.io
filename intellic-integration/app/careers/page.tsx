@@ -16,7 +16,7 @@ export default function CareerPage() {
 
     const formData = new FormData(event.target as HTMLFormElement);
 
-    fetch("/", {
+    fetch("/netlify-careers.html", {
       method: "POST",
       body: formData,
     })
