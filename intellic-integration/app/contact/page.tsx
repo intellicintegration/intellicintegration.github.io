@@ -12,14 +12,22 @@ export default function ContactPage() {
   const [isError, setIsError] = useState(false);
   const [Error, setError] = useState("");
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target as HTMLFormElement);
+    // const formData = new FormData(event.target as HTMLFormElement);
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
 
     fetch("/", {
       method: "POST",
-      body: formData,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(Array.from(formData.entries()).reduce((acc, [key, value]) => {
+        acc[key] = value as string;
+        return acc;
+      }, {} as Record<string, string>)).toString()
+      // body: formData,
     })
       .then((response) => setIsSubmitted(true))
       .catch((error) => {
