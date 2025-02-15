@@ -80,14 +80,14 @@ export default function ContactPage() {
                   isRequired
                 />
 
-                <Textarea
-                  type="text"
+                <Input
                   isRequired
-                  variant="underlined"
+                  type="textarea"
                   label="How can we help?"
                   name="message"
                   id="message"
                 />
+                
                 <CardFooter className="flex justify-end">
                   <Button
                     type="submit"
