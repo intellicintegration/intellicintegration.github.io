@@ -59,7 +59,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className="bg-gradient-to-br from-primary-50 bg-fixed"
+      className="bg-gradient-to-br from-primary-50 bg-fixed overflow-x-hidden"
     >
       <head />
       <body
