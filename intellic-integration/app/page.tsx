@@ -100,7 +100,7 @@ export default function Home() {
             "Transform raw data into actionable insights with millisecond latency, enabling immediate response to production anomalies and opportunities.",
         },
         {
-          label: "Standardized Data Architecture",
+          label: "Namespace Governance",
           description:
             "Implement industry-standard schemas that ensure seamless integration between systems and future-proof your data infrastructure.",
         },
