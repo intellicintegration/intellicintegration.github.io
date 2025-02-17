@@ -76,7 +76,11 @@ export default function RootLayout({
             </main>
             <footer className="w-full bg-black text-white py-10">
               <div className="max-w-7xl mx-auto px-6 flex-col gap-4 md:flex-row flex justify-between">
-                <Link className="flex flex-row gap-2 items-center cursor-pointer" href="/" color="foreground">
+                <Link
+                  className="flex flex-row gap-2 items-center cursor-pointer"
+                  href="/"
+                  color="foreground"
+                >
                   <Image
                     src="/logo.svg"
                     alt="Company Logo"
@@ -117,7 +121,7 @@ export default function RootLayout({
                     name: "Texas",
                     address:
                       "2221 East Lamar Blvd Suite 940 Arlington, TX 76006",
-                    phone: "(480) 756-2300",
+                    phone: "(972)895-3919",
                   },
                 ].map((location, index) => (
                   <div key={index} className="flex flex-row gap-2">
