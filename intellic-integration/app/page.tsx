@@ -309,7 +309,7 @@ export default function Home() {
           <CardBody>
             <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-lg leading-relaxed">
               By uniting deep respect for people, a culture of innovation, and
-              advanced technology-driven innovation, we enable enterprise
+              advanced technology-driven solutions, we enable enterprise
               transformation that extends well beyond any single project.
             </p>
           </CardBody>
