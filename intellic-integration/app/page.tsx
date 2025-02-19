@@ -123,7 +123,7 @@ export default function Home() {
         {
           label: "Dynamic Production Orchestration",
           description:
-            "Optimize throughput with AI-driven scheduling that adapts to real-time conditions, reducing lead times by up to 30%.",
+            "Optimize throughput with scheduling that adapts to real-time conditions.",
         },
         {
           label: "Intelligent Material Management",
@@ -451,7 +451,7 @@ export default function Home() {
                 </CardHeader>
                 <CardBody className="">
                   <p className="text-lg text-gray-300 md:text-justify">
-                    Our mission is to save and create middle class jobs. We do
+                    To save and create middle class jobs. We do
                     this by helping employers leverage technology to innovate
                     their businesses. We are here to improve the lives of
                     everyone we come into contact with.
