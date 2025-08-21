@@ -120,7 +120,7 @@ export default function RootLayout({
                   {
                     name: "Texas",
                     address:
-                      "2221 East Lamar Blvd Suite 940 Arlington, TX 76006",
+                      "290 East Lamar Blvd Suite 940 Arlington, TX 76006",
                     phone: "(972)895-3919",
                   },
                 ].map((location, index) => (
